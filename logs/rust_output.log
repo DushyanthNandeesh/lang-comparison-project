@@ -1,0 +1,35 @@
+=== Rust ownership_demo (correct) ===
+Sum via borrow: 15
+Still usable after borrow: [1, 2, 3, 4, 5]
+Sum via move: 15
+heap-allocated string (mutated through an exclusive borrow)
+End of main: all heap allocations already freed.
+
+=== Rust borrow-checker error (intentional) ===
+error[E0382]: borrow of moved value: `numbers`
+  --> ownership_error_demo.rs:11:22
+   |
+8  |     let numbers = vec![1, 2, 3, 4, 5];
+   |         ------- move occurs because `numbers` has type `Vec<i32>`, which does not implement the `Copy` trait
+9  |     let total = takes_ownership(numbers); // `numbers` moves into the function
+   |                                 ------- value moved here
+10 |     println!("Sum: {}", total);
+11 |     println!("{:?}", numbers); // ERROR: use after move, caught at compile time
+   |                      ^^^^^^^ value borrowed here after move
+   |
+note: consider changing this parameter type in function `takes_ownership` to borrow instead if owning the value isn't necessary
+  --> ownership_error_demo.rs:3:26
+   |
+3  | fn takes_ownership(data: Vec<i32>) -> i32 {
+   |    ---------------       ^^^^^^^^ this parameter takes ownership of the value
+   |    |
+   |    in this function
+   = note: this error originates in the macro `$crate::format_args_nl` which comes from the expansion of the macro `println` (in Nightly builds, run with -Z macro-backtrace for more info)
+help: consider cloning the value if the performance cost is acceptable
+   |
+9  |     let total = takes_ownership(numbers.clone()); // `numbers` moves into the function
+   |                                        ++++++++
+
+error: aborting due to previous error
+
+For more information about this error, try `rustc --explain E0382`.

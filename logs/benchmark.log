@@ -1,0 +1,13 @@
+=== Matched benchmark: 5M ints alloc/sum/free, peak RSS + time ===
+-- C++ --
+sum=12499997500000
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.01
+	Maximum resident set size (kbytes): 22800
+-- Rust --
+sum=12499997500000
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.01
+	Maximum resident set size (kbytes): 21452
+-- Java --
+sum=12499997500000
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.07
+	Maximum resident set size (kbytes): 60336

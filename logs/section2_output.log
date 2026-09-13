@@ -1,0 +1,33 @@
+=== Section 1.2: Python ===
+counter(): 11
+counter(): 12
+counter(5): 17
+value: 5 <class 'int'>
+value: five <class 'str'>
+value: [5] <class 'list'>
+len of list: 3
+len of str: 5
+TypeError caught: object of type 'int' has no len()
+
+=== Section 1.2: JavaScript ===
+counter(): 11
+counter(): 12
+counter(5): 17
+value: 5 number
+value: five string
+value: [ 5 ] object
+1 + '1' = 11
+1 == '1' : true
+1 === '1' : false
+I leak out of the block
+ReferenceError caught: blockScoped is not defined
+
+=== Section 1.2: C++ ===
+counter(1): 11
+counter(1): 12
+counter(5): 17
+value: 5
+byValue() still sees: 100
+byRef() sees updated: 200
+a + std::stoi(b) = 2
+std::to_string(a) + b = 11

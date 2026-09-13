@@ -1,0 +1,17 @@
+=== Java GC demo ===
+[0.004s][info][gc] Using Serial
+Used memory before allocation: 2 MB
+[0.059s][info][gc] GC(0) Pause Young (Allocation Failure) 12M->11M(61M) 6.472ms
+[0.067s][info][gc] GC(1) Pause Young (Allocation Failure) 21M->21M(61M) 6.234ms
+[0.073s][info][gc] GC(2) Pause Young (Allocation Failure) 31M->31M(61M) 5.790ms
+[0.080s][info][gc] GC(3) Pause Young (Allocation Failure) 41M->41M(61M) 5.775ms
+[0.086s][info][gc] GC(4) Pause Young (Allocation Failure) 51M->51M(71M) 5.858ms
+[0.088s][info][gc] GC(5) Pause Full (Allocation Failure) 51M->51M(123M) 1.951ms
+[0.214s][info][gc] GC(6) Pause Young (Allocation Failure) 81M->81M(123M) 84.934ms
+[0.235s][info][gc] GC(7) Pause Young (Allocation Failure) 111M->111M(153M) 18.049ms
+[0.237s][info][gc] GC(8) Pause Full (Allocation Failure) 111M->111M(268M) 2.150ms
+[0.690s][info][gc] GC(9) Pause Young (Allocation Failure) 182M->181M(268M) 295.356ms
+Used memory after allocating 20x10MB blobs: 202 MB
+[0.695s][info][gc] GC(10) Pause Full (System.gc()) 202M->1M(268M) 2.325ms
+Used memory after clearing references + System.gc(): 2 MB
+Note: the programmer never freed memory manually; the JVM's garbage collector reclaimed the unreachable objects.
